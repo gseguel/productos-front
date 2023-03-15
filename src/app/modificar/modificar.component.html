@@ -1,0 +1,78 @@
+<div class="container mt-20">
+  <h1>Actualizar Producto</h1>
+      
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    
+      <div *ngIf="producto" class="form-group">
+        <input 
+              formControlName="sku"
+              id="sku"
+              type="text"   
+              [(ngModel)]="producto.sku"
+              class="form-control" hidden="true" >
+        </div> 
+      <div  *ngIf="producto" class="form-group">
+        <label for="name">Nombre:</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            [(ngModel)]="producto.name"
+            class="form-control">
+      </div>
+       
+      <div  *ngIf="producto" class="form-gruop mt-2">
+        <label for="brand">Marca:</label>
+        <input 
+            formControlName="brand"
+            id="brand"
+            type="text"   
+            [(ngModel)]="producto.brand"
+            class="form-control">
+      </div>
+
+      <div *ngIf="producto"  class="form-gruop mt-2">
+        <label for="size">Tamaño:</label>
+        <input 
+            formControlName="size"
+            id="size"
+            type="text"   
+            [(ngModel)]="producto.size"
+            class="form-control">
+      </div>
+
+      <div *ngIf="producto" class="form-gruop mt-2">
+        <label for="price">Precio:</label>
+        <input 
+            formControlName="price"
+            id="price"
+            type="text"   
+            [(ngModel)]="producto.price"
+            class="form-control">
+      </div>
+
+      <div *ngIf="producto" class="form-gruop mt-2">
+        <label for="principalImage">Imagen Principal:</label>
+        <input 
+            formControlName="principalImage"
+            id="principalImage"
+            type="url"   
+            [(ngModel)]="producto.principalImage"
+            class="form-control">
+      </div>
+      
+      <div *ngIf="producto" class="form-gruop mt-2">
+        <label for="otherImages">Otras Imagenes:</label>
+        <input 
+            formControlName="otherImages"
+            id="otherImages"
+            type="url"   
+            [(ngModel)]="producto.otherImages"
+            class="form-control">
+      </div>
+
+      <button class="btn btn-primary mt-2" type="submit">Actualizar</button>
+      <a routerLink="../../visualizar" class=" btn btn-primary mt-2 ml-20">Atras</a>
+
+  </form>
+</div>

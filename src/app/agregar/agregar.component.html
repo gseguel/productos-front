@@ -1,0 +1,55 @@
+<div class="container">
+    <div >
+        <div class="card-body">
+            <div class="col-md-12">
+                <h1>Agrega un Producto</h1>
+            </div>
+        </div>
+        <form [formGroup]="producto" (ngSubmit)="onSubmit()" class="mt-20">
+            <div class="form-gruop mt-2 ">
+                <input type="text" name="name" formControlName="name" placeholder="Ingresa nombre" appMaxLength="50" autocomplete="off" class="form-control">
+                <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                    <div *ngIf="f.name.errors.required">Nombre es requerido.</div>
+                    <div *ngIf="f.name.errors.maxlength">50 caracteres maximo.</div>
+
+                </div>           
+            </div>
+            <div class="form-gruop mt-2">
+                <input type="text" name="brand" formControlName="brand" placeholder="Ingresa Marca" appMaxLength="50" autocomplete="off" class="form-control">
+                <div *ngIf="f.brand.touched && f.brand.invalid" class="alert alert-danger">
+                    <div *ngIf="f.brand.errors.required">Marca es requerida.</div>
+                </div>   
+            </div>
+            <div class="form-gruop mt-2">
+                <input type="text" name="size" formControlName="size" placeholder="Ingresa un tamaño" appMaxLength="5" autocomplete="off" class="form-control">
+                <div *ngIf="f.size.touched && f.size.invalid" class="alert alert-danger">
+                    <div *ngIf="f.size.errors.required">Tamaño es requerido.</div>
+                </div>  
+            </div>
+            <div class="form-gruop mt-2">
+                <input type="number" name="price" formControlName="price" placeholder="Ingresa un precio" min="0" step=".01" appMaxLength="20" class="form-control">
+                <div *ngIf="f.price.touched && f.price.invalid" class="alert alert-danger">
+                    <div *ngIf="f.price.errors.required">Precio es requerido.</div>
+                </div> 
+            </div>
+            <div class="form-outline mt-2">
+                <input type="text" name="principalImage" formControlName="principalImage" placeholder="Ingrese URL Example: https://www.falabella.com/" class="form-control" />
+                <div *ngIf="f.principalImage.touched && f.principalImage.invalid" class="alert alert-danger">
+                    <div *ngIf="f.principalImage.errors.required">URL no Valida.</div>
+                    <div *ngIf="f.principalImage.errors.pattern">Debe ingresar un formato de url.</div>
+
+                </div> 
+            </div>
+            <div class="form-outline mt-2">
+                <input type="url" name="otherImages" formControlName="otherImages" placeholder="URL Otras imagenes" class="form-control" />
+            </div>
+             <div class="form-group mt-20">
+                <button type="submit" [disabled]="!producto.valid" class="btn btn-primary">
+                    Guardar
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

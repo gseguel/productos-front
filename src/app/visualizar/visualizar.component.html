@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Mantenedor Productos </h1>    
+        <div class="form-group">
+            <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Busqueda SKU</label>
+            <div class="col-xs-3 col-sm-auto">
+                <input type="text" class="form-control search-field" [(ngModel)]="searchText"  placeholder="Ingrese SKU" />
+            </div>
+        </div>
+    <table class="table-visualizar table-bordered">
+      <tr>
+        <th scope="col">SKU</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Tamaño</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Imagen Principal</th>
+        <th scope="col">Otras Imagenes</th>
+
+        <th width="300px">Action</th>
+      </tr>
+      <tr *ngFor="let producto of productos | filter:searchText:'sku'">
+        <td>{{ producto.sku }}</td>
+        <td>{{ producto.name }}</td>
+        <td>{{ producto.brand }}</td>
+        <td>{{ producto.size }}</td>
+        <td>{{ producto.price }}</td>
+        <td><a href={{producto.principalImage}} target="_blank">{{producto.principalImage}}</a></td>
+        <td>{{ producto.otherImages }}</td>
+        <td>
+          <a routerLink="../visualizar" class="btn btn-primary ml-20">Ver</a>
+          <a [routerLink]="['../modificar/', producto.sku]" class="btn btn-primary ml-20">Modificar</a>
+          <button type="button" (click)="deleteProduct(producto.sku)"  routerLink="../visualizar" class="btn btn-danger ml-20">Eliminar</button>
+        </td>
+      </tr>
+    </table>
+ </div>
