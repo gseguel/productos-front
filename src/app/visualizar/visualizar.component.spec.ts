@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { FilterPipe } from '../filter.pipe';
 
 import { VisualizarComponent } from './visualizar.component';
 
@@ -8,7 +12,9 @@ describe('VisualizarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VisualizarComponent ]
+      imports: [
+        HttpClientTestingModule, ReactiveFormsModule, FormsModule],
+      declarations: [ VisualizarComponent, FilterPipe ]
     })
     .compileComponents();
   });

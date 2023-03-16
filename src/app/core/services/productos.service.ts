@@ -19,7 +19,7 @@ export class ProductosService {
   }
   constructor(private readonly httpcli: HttpClient) { }
 
-  addProduct(producto): Observable<Producto>{
+  addProduct(producto): Observable<any>{
     const endopoint = this.api.host + this.api.path + this.endpoints.productos.agregar;
     return this.httpcli.post<Producto>(endopoint, JSON.stringify(producto), this.httpOptions)
     .pipe(catchError(this.errorHandler)
@@ -49,7 +49,7 @@ export class ProductosService {
     )
   }
 
-  deleteProduct(sku){
+  deleteProduct(sku):any{
     const endopoint = this.api.host + this.api.path + this.endpoints.productos.eliminar + sku;
     return this.httpcli.delete<Producto>(endopoint)
     .pipe(

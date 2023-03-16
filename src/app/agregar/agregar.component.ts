@@ -10,6 +10,7 @@ import { ProductosService } from '../core/services/productos.service';
 })
 export class AgregarComponent implements OnInit {
   producto: FormGroup;
+  submitted=false;
   constructor(
     private productoService: ProductosService, 
     private router: Router
@@ -32,6 +33,10 @@ export class AgregarComponent implements OnInit {
   }
 
   onSubmit(){
+    this.submitted = true;
+    if(this.producto.invalid){
+      return;
+    }
     console.log(this.producto.value);
     this.productoService.addProduct(this.producto.value).subscribe(res => {
          console.log('¡Producto agregado!');

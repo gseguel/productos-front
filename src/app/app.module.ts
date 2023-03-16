@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +29,10 @@ import { FilterPipe } from './filter.pipe';
     FormsModule, 
     ReactiveFormsModule
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+  exports:[FilterPipe],
   providers: [],
   bootstrap: [AppComponent]
 })
