@@ -18,10 +18,21 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Instalar librerias
+npm install --legacy-peer-deps
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Levantar proyecto
+ng serve
 
-## Further help
+## Arquitectura
+Se utilizo bootstrap
+Se creo un modulo principal.
+Componente para la barra de navegacion.
+Componente para modificacion de producto.
+Componente para agegar un producto.
+Servicio para realizar el CRUD
+Pipe para la busqueda por el campo sku
+Se crearon algunos test
+Se creo una estructura Core en el que se encuentra la interfaz de producto y servicio
+En el enveriment.ts se encuentran el host y rutas de los endpoint del backend
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
