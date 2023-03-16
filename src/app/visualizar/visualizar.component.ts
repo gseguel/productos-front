@@ -14,6 +14,7 @@ export class VisualizarComponent implements OnInit {
   private readonly subscriptions: Subscription[] = [];
   searchText:string;
   productos: Producto[];
+  productoSeleccionado: Producto;
   constructor(private productoService: ProductosService
     ) { }
 
@@ -29,5 +30,9 @@ export class VisualizarComponent implements OnInit {
       this.productos = this.productos.filter(item => item.sku !== sku);
       console.log('¡Producto Eliminado!');
     })
+  }
+
+  viewProduct(producto){
+    this.productoSeleccionado = producto;
   }
 }

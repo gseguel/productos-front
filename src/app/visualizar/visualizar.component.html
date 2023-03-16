@@ -27,10 +27,50 @@
         <td><a href={{producto.principalImage}} target="_blank">{{producto.principalImage}}</a></td>
         <td>{{ producto.otherImages }}</td>
         <td>
-          <a routerLink="../visualizar" class="btn btn-primary ml-20">Ver</a>
+          <button type="button" (click)="viewProduct(producto)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalVerProductos">Ver</button>
           <a [routerLink]="['../modificar/', producto.sku]" class="btn btn-primary ml-20">Modificar</a>
           <button type="button" (click)="deleteProduct(producto.sku)"  routerLink="../visualizar" class="btn btn-danger ml-20">Eliminar</button>
         </td>
       </tr>
     </table>
  </div>
+
+ <div class="modal fade" id="modalVerProductos" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-danger" id="modalLabel">Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <span>Nombre del Producto:</span>
+            </div>
+            <div *ngIf="productoSeleccionado" class="mb-3">{{productoSeleccionado.name}}</div>
+
+            <div class="mb-3">
+                <span>Marca del Producto:</span>
+            </div>
+            <div *ngIf="productoSeleccionado" class="mb-3">{{productoSeleccionado.brand}}</div>
+
+            <div class="mb-3">
+                <span>Tamaño del Producto:</span>
+            </div>
+            <div *ngIf="productoSeleccionado" class="mb-3">{{productoSeleccionado.size}}</div>
+
+            <div class="mb-3">
+                <span>Precio del Producto:</span>
+            </div>
+            <div *ngIf="productoSeleccionado" class="mb-3">{{productoSeleccionado.price}}</div>
+
+            <div class="mb-3">
+                <span>Imagen del Producto:</span>
+            </div>
+            <img *ngIf="productoSeleccionado" class="imagen" src="{{productoSeleccionado.principalImage}}" width="328" height="328">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

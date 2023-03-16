@@ -29,9 +29,6 @@ import { FilterPipe } from './filter.pipe';
     FormsModule, 
     ReactiveFormsModule
   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
   exports:[FilterPipe],
   providers: [],
   bootstrap: [AppComponent]
