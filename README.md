@@ -36,3 +36,10 @@ Se crearon algunos test
 Se creo una estructura Core en el que se encuentra la interfaz de producto y servicio
 En el enveriment.ts se encuentran el host y rutas de los endpoint del backend
 
+Se realiza mantanedor para:
+Agregar Producto.
+Modificar Producto.
+Visualizar un listado de productos.
+Visualizar solo 1 producto.
+Eliminar 1 producto.
+
